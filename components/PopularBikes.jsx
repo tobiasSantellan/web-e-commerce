@@ -1,4 +1,5 @@
 import { client } from "@/app/lib/sanity";
+import Link from "next/link";
 
 const getData = async () => {
   const query = `*[_type == "product" && references(*[_type == "category" && name == "popular" ]._id, categories)]{
@@ -22,7 +23,20 @@ _id,
 const PopularBikes = async () => {
   const bikes = await getData();
   console.log(bikes);
-  return <div>PopularBikes</div>;
+  return (
+    <section className="py-24">
+      <div className="container mx-auto">
+        <h2 className="text-center text-white/90">Most Popular Bikes</h2>
+        <p className="text-center mb-[30px] text-white">
+          Top Global Premium Brands in one Destination.
+        </p>
+        <div>Carousel</div>
+        <Link href="/our-bikes">
+          <button className="btn btn-accent mx-auto">See all bikes</button>
+        </Link>
+      </div>
+    </section>
+  );
 };
 
 export default PopularBikes;
