@@ -1,5 +1,6 @@
 import { client } from "@/app/lib/sanity";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 const getData = async () => {
   const query = `*[_type == "product" && references(*[_type == "category" && name == "popular" ]._id, categories)]{
@@ -32,7 +33,9 @@ const PopularBikes = async () => {
         </p>
         <div>Carousel</div>
         <Link href="/our-bikes">
-          <button className="btn btn-accent mx-auto">See all bikes</button>
+          <Button className="uppercase text-center mx-auto flex justify-center items-center px-8">
+            See all bikes
+          </Button>
         </Link>
       </div>
     </section>
