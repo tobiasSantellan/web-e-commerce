@@ -27,8 +27,8 @@ const Bike = ({ bike }) => {
             alt={bike.images}
           />
         </div>
-        <div className="absolute top-0 left-0 right-0 bottom-0">
-          <AddToCartBtn />
+        <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center gap-[10px] opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <AddToCartBtn btnStyles=" bg-accent h-[40px] rounded-sm uppercase text-sm text-center p-2  hover:bg-accent-hover " />
           <Link href={`/product/${bike.slug}`}>
             <button className="btn-icon bg-[#121214]">
               <CgEye />
@@ -36,6 +36,11 @@ const Bike = ({ bike }) => {
           </Link>
         </div>
       </div>
+      <h5 className="text-gray-500 mb-2 font-semibold uppercase">
+        {bike.categories[0].name}
+      </h5>
+      <h4 className="text-black mb-1">{bike.name}</h4>
+      <div className="text-lg font-bold text-accent">${bike.price}</div>
     </div>
   );
 };
