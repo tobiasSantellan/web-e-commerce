@@ -84,9 +84,9 @@
   h2 {
     @apply text-[40px];
   }
-  h3 {
+  /* h3 {
     @apply text-[22px];
-  }
+  } */
   h4 {
     @apply text-[18px];
   }
