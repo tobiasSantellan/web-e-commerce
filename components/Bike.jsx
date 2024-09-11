@@ -29,6 +29,11 @@ const Bike = ({ bike }) => {
         </div>
         <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center gap-[10px] opacity-0 group-hover:opacity-100 transition-all duration-300">
           <AddToCartBtn
+            name={bike.name}
+            currency="USD"
+            description={bike.description}
+            images={bike.images}
+            price={bike.price}
             btnStyles="btn-icon bg-accent h-[40px] rounded-sm uppercase text-sm text-center p-2  hover:bg-accent-hover "
             icon={<CgShoppingBag />}
           />
