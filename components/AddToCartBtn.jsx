@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 import { useShoppingCart } from "use-shopping-cart";
 
 const AddToCartBtn = ({
@@ -26,6 +27,7 @@ const AddToCartBtn = ({
       className={`${btnStyles}`}
       onClick={() => {
         addItem(bike);
+        toast(`${name} has been added to the cart`);
       }}
     >
       <div>{text}</div>
