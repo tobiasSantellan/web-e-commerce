@@ -1,3 +1,4 @@
+"use client";
 import { toast } from "sonner";
 import { useShoppingCart } from "use-shopping-cart";
 
