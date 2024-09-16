@@ -11,6 +11,7 @@ const AddToCartBtn = ({
   description,
   images,
   price,
+  price_id,
 }) => {
   const { addItem } = useShoppingCart();
 
@@ -20,6 +21,7 @@ const AddToCartBtn = ({
     description: description,
     images: images,
     price: price,
+    price_id: price_id,
   };
 
   return (
