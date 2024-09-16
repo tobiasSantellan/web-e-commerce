@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import PopularBikeCarrousel from "./PopularBikeCarrousel";
 
 const getData = async () => {
-  const query = `*[_type == "product" && references(*[_type == "category" && name == "popular" ]._id, categories)]{
+  const query = `*[_type == "product" && references(*[_type == "category" && name == "popular" ]._id, categories) ]{
 _id,
   name,
   description,
