@@ -28,15 +28,15 @@ const getData = async (slug) => {
 };
 
 const ProductDetailsPage = async ({ params }) => {
-  const bikes = await getData(params.slug);
-  // console.log(bikes);
+  const bike = await getData(params.slug);
+  console.log(bike);
   return (
     <section className="pt-24 pb-32 ">
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-14">
           <div className="xl:flex-1 h-[460px] bg-gray-200 xl:w-[700px] xl:h-[540px] flex justify-center items-center rounded-sm ">
             <Image
-              src={urlFor(bikes.images[0]).url()}
+              src={urlFor(bike.images[0]).url()}
               width={473}
               height={290}
               priority
@@ -53,13 +53,19 @@ const ProductDetailsPage = async ({ params }) => {
             </Link>
             <div className="flex flex-col gap-6 items-start">
               <div>
-                <h3 className="text-gray-800">{bikes.name}</h3>
+                <h3 className="text-gray-800">{bike.name}</h3>
                 <p className="text-red-600 text-lg font-semibold">
-                  ${bikes.price}
+                  ${bike.price}
                 </p>
               </div>
-              <p className=" text-sm font-light">{bikes.description}</p>
+              <p className=" text-sm font-light">{bike.description}</p>
               <AddToCartBtn
+                price_id={bike.price_id}
+                name={bike.name}
+                currency="USD"
+                description={bike.description}
+                images={bike.images}
+                price={bike.price}
                 text="Add To Cart"
                 btnStyles=" btn-accent rounded-sm uppercase text-sm text-center p-2 text-white hover:bg-accent-hover "
               />
