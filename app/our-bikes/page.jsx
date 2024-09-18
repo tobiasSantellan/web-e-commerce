@@ -1,4 +1,5 @@
 import { client } from "@/app/lib/sanity";
+import BikeCategories from "@/components/BikeCategories";
 
 const getData = async () => {
   const query = `*[_type == "product"]{
@@ -20,8 +21,12 @@ _id,
 
 const OurBikes = async () => {
   const bikes = await getData();
-  console.log(bikes);
-  return <div>OurBikes</div>;
+
+  return (
+    <div>
+      <BikeCategories bikes={bikes} />
+    </div>
+  );
 };
 
 export default OurBikes;
