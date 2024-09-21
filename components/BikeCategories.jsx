@@ -8,13 +8,26 @@ import Bike from "./Bike";
 const BikeCategories = ({ bikes }) => {
   const [category, setCategory] = useState("all");
   const [filteredBikes, setFilteredBikes] = useState([]);
-  const [price, setPrice] = useState();
-  console.log(category);
+  const [price, setPrice] = useState(900);
+  useEffect(() => {
+    const filtered = bikes.filter((bike) => {
+      const categoryMatch =
+        category === "all"
+          ? bikes
+          : bike.categories.some((categ) => categ.name === category);
+      const priceMatch = bike.price <= price;
+      return categoryMatch && priceMatch;
+    });
+    setFilteredBikes(filtered);
+  }, [category, price, bikes]);
+
+  console.log(filteredBikes);
+
   return (
     <section className="min-h-[1200px] py-10 ">
       <div className="container mx-auto">
         <div className="flex flex-col">
-          <aside className="bg-yellow-100 w-full p-4 mb-8 xl:w-[300px] xl:h-[84vh] xl:fixed">
+          <aside className=" w-full p-4 mb-8 xl:w-[300px] xl:h-[84vh] xl:fixed xl:-ml-[100px]">
             <RadioGroup
               defaultValue="all"
               className="flex flex-col gap-6 mb-12"
@@ -53,8 +66,35 @@ const BikeCategories = ({ bikes }) => {
               </div>
             </RadioGroup>
             {/* price slider */}
+            <div className="max-w-56">
+              <div className="text-lg font-medium mb-4">
+                Max Price:{" "}
+                <span className="text-accent font-semibold ml-2">
+                  $ {price}
+                </span>
+                <span className="ml-2">
+                  {filteredBikes.length > 1
+                    ? `${filteredBikes.length} items`
+                    : filteredBikes === 0
+                      ? `${filteredBikes.length} items`
+                      : `${filteredBikes.length} item`}
+                </span>
+                <Slider
+                  defaultValue={[900]}
+                  max={1000}
+                  step={1}
+                  onValueChange={(val) => setPrice(val[0])}
+                />
+              </div>
+            </div>
           </aside>
-          <div className="bg-blue-300 w-full xl:w-[1050px] ml-auto">div</div>
+          <div className="w-full xl:w-[100%] ml-[220px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px]">
+              {filteredBikes.map((bike) => {
+                return <Bike bike={bike} key={bike.price_id} />;
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
