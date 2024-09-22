@@ -29,7 +29,7 @@ const PopularBikes = async () => {
     <section className="py-24">
       <div className="container mx-auto">
         <h2 className="text-center">Most Popular Bikes</h2>
-        <p className="text-center  mb-[30px] text-black/80">
+        <p className="text-center  mb-[30px] text-black/80 font-light">
           Top Global Premium Brands in one Destination.
         </p>
         <PopularBikeCarrousel bikes={bikes} />
