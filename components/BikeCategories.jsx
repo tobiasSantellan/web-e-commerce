@@ -24,10 +24,10 @@ const BikeCategories = ({ bikes }) => {
   console.log(filteredBikes);
 
   return (
-    <section className="min-h-[1200px] py-10 ">
+    <section className="min-h-[1200px] w-full py-10 ">
       <div className="container mx-auto">
         <div className="flex flex-col">
-          <aside className="w-full p-4 mb-8 xl:w-[300px] xl:h-[84vh] xl:fixed xl:ml-[10px]">
+          <aside className="w-full p-4 mb-8 xl:w-[300px] xl:h-[50vh] xl:fixed xl:ml-[10px]">
             <RadioGroup
               defaultValue="all"
               className="flex flex-col gap-6 mb-12"
@@ -88,8 +88,8 @@ const BikeCategories = ({ bikes }) => {
               </div>
             </div>
           </aside>
-          <div className="w-full xl:w-[80%] ml-[300px]">
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] ">
+          <div className="w-full xl:w-[calc(100%-220px)] ml-[255px] ">
+            <div className="grid grid-cols-1 -ml-[250px] xl:-ml-0 w-full md:grid-cols-2 xl:grid-cols-3 gap-[30px] overflow-hidden">
               {filteredBikes.map((bike) => {
                 return <Bike bike={bike} key={bike.price_id} />;
               })}
