@@ -29,7 +29,7 @@ const getData = async (slug) => {
 
 const ProductDetailsPage = async ({ params }) => {
   const bike = await getData(params.slug);
-  console.log(bike);
+  // console.log(bike);
   return (
     <section className="pt-[70px] pb-32 ">
       <div className="container mx-auto">
