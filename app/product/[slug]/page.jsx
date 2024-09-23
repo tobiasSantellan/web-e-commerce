@@ -31,14 +31,14 @@ const ProductDetailsPage = async ({ params }) => {
   const bike = await getData(params.slug);
   console.log(bike);
   return (
-    <section className="pt-24 pb-32 ">
+    <section className="pt-[70px] pb-32 ">
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-14">
           <div className="xl:flex-1 h-[460px] bg-gray-200 xl:w-[700px] xl:h-[540px] flex justify-center items-center rounded-sm ">
             <Image
               src={urlFor(bike.images[0]).url()}
               width={473}
-              height={290}
+              height={250}
               priority
               alt="bike-image"
             />
