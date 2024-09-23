@@ -79,11 +79,9 @@
     @apply text-5xl md:text-[80px] leading-none;
   }
   h2 {
-    @apply text-[40px];
+    @apply text-[30px];
   }
-  h2 {
-    @apply text-[40px];
-  }
+
   /* h3 {
     @apply text-[22px];
   } */
