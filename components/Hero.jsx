@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 
 const Hero = () => {
   return (
-    <section className="py-48 md:py-0 md:h-[820px] relative overflow-hidden bg-gray-100">
+    <section className="pt-[192px] pb-[120px] md:py-0 md:h-[720px] relative overflow-hidden bg-gray-100">
       <div className="container mx-auto">
         <div className="flex items-center justify-between -mt-[59px]">
           <div className="w-full xl:max-w-[580px] md:h-[820px] flex flex-col justify-center items-start xl:ml-[50px]">
